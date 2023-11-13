@@ -1,0 +1,35 @@
+# Copyright (c) 2023 CogniPilot Foundation
+# SPDX-License-Identifier: Apache-2.0
+
+manifest:
+
+  group-filter:
+    - +optional
+
+  self:
+    west-commands: scripts/west-commands.yml
+
+  remotes:
+    - name: zephyrproject-rtos
+      url-base: https://github.com/zephyrproject-rtos
+    - name: cognipilot
+      url-base: https://github.com/CogniPilot
+    - name: zenoh
+      url-base: https://github.com/eclipse-zenoh
+
+  projects:
+    - name: zephyr
+      remote: cognipilot
+      west-commands: scripts/west-commands.yml
+      revision: a7a080bf2e5175a1a3e26ac876a92d5c8268cf2f # qdec-tested 11/10/23
+      import:
+        - name-allowlist:
+          - nanopb
+          - mbedtls
+          - hal_nxp
+          - cmsis
+          - ubxlib
+    - name: zenoh-pico
+      remote: cognipilot
+      revision: 43d2b4c46350363585bae4033271fe3f545c9049 # main 11/11/23
+      path: modules/lib/zenoh_pico

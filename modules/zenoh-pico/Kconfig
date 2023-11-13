@@ -1,0 +1,10 @@
+# SPDX-License-Identifier: Apache-2.0
+config ZENOH_PICO
+        bool "Zenoh pico support"
+        help
+          This option enables Zenoh pico
+
+if ZENOH_PICO
+
+endif
+
